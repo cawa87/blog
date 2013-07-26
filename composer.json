@@ -1,0 +1,23 @@
+{
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "sybio/imageworkshop",
+                "version": "master",
+                "dist": {
+                    "url": "http://github.com/Sybio/ImageWorkshop/archive/master.zip",
+                    "type": "zip"
+                }
+            }
+
+        }
+        
+    ],
+    "require": {
+        "sybio/imageworkshop": "master@dev",
+        "doctrine/orm": "*",
+        "php": ">=5.4.0"
+
+    }
+}
