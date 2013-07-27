@@ -8,7 +8,6 @@ chdir(dirname(__DIR__));
 //create constant for project dir
 define('BASE_DIR', dirname(__DIR__));
 
-
 require '/vendor/autoload.php';
 require 'config/DoctrineConfig.php';
 
@@ -21,4 +20,5 @@ $test->setText('asdasdsad');
 //$entityManager->flush();
 
 $first = $entityManager->getRepository('Entity\Test')->find(1);
+var_dump($first->setCreated(date()));
 var_dump($first->getCreated());
