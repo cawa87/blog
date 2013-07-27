@@ -35,8 +35,8 @@
 			}
 			else
 				$params = false;
-			if (file_exists('..Путь не знаю куда..'/$controller.'.php')) {
-				include '..Путь не знаю куда..'/$controller.'.php';
+			if (file_exists('..Путь не знаю куда..'.$controller.'.php')) {
+				include '..Путь не знаю куда..'.$controller.'.php';
 				if (class_exists($controller)) {
 					$controller = new $controller();
 					if (method_exists($controller, $action)) {
