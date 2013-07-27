@@ -12,10 +12,10 @@ define('BASE_DIR', dirname(__DIR__));
 require '/vendor/autoload.php';
 
 //define environment dev/prod
-if(is_readable('config/appConfig.local.php') && is_readable('config/DoctrineConfig.local.php')){
-    define('ENVIRONMENT', 'dev');
-}else{
-    define('ENVIRONMENT', 'prod');
+if (is_readable('config/appConfig.local.php') && is_readable('config/DoctrineConfig.local.php')) {
+   define('ENVIRONMENT', 'dev');
+} else {
+   define('ENVIRONMENT', 'prod');
 }
 
 

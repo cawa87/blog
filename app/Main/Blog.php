@@ -22,19 +22,19 @@ class Blog
         
     }
     
-    public function includeConfig()
+    public function includeConfig() 
     {
-        if(ENVIRONMENT == 'dev'){
-            require BASE_DIR.'/config/appConfig.local.php';
-            require BASE_DIR.'/config/DoctrineConfig.local.php';
-            echo 'config included... <br />';
-        }else{
-            require BASE_DIR.'/config/appConfig.php';
-            require BASE_DIR.'/config/DoctrineConfig.php';
-            echo 'config included... <br />';
-        }
-        echo 'env is '.ENVIRONMENT.'... <br />';
-    }
+      if (ENVIRONMENT == 'dev') {
+         require BASE_DIR . '/config/appConfig.local.php';
+         require BASE_DIR . '/config/DoctrineConfig.local.php';
+         echo 'config included... <br />';
+      } else {
+         require BASE_DIR . '/config/appConfig.php';
+         require BASE_DIR . '/config/DoctrineConfig.php';
+         echo 'config included... <br />';
+      }
+      echo 'env is ' . ENVIRONMENT . '... <br />';
+   }
             
     
 }
