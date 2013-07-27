@@ -2,12 +2,14 @@
 	
 	namespace Main\Router;
 	
-	class Router {
+	class Router
+	{
 		
 		private $d_controller = 'Main';
 		private $d_controller = 'indexAction';
 		
-		private function getRequest () {
+		private function getRequest ()
+		{
 			$uri = isset($_SERVER['REQUEST_URI']) ? trim($_SERVER['REQUEST_URI'], '/') : array();
 			if (strpos('?', $uri)) // Если есть GET запросы то обрезаем ссылку до них чтобы они работали и не мешали открывать нужную ссылку
 				$uri = substr($uri, 0, strpos('?', $uri));
@@ -16,7 +18,8 @@
 			return $uri;
 		}
 		
-		public function appRun () {
+		public function appRun ()
+		{
 			$uri = $this->getRequest();
 			$controller = !empty($uri[0]) ? ucfirst($uri[0]) : $this->d_controller;
 			$action = !empty($uri[1]) ? ucfirst($uri[1]).'Action' : $this->d_action;
