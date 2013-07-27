@@ -3,4 +3,4 @@ nbproject
 vendor
 vendor/*
 composer.lock
-config/DoctrineConfig.php
+

@@ -30,8 +30,8 @@ $config->setMetadataCacheImpl($cache);
 $entityManager = EntityManager::create(
                 array(
             'driver' => 'pdo_mysql',
-            'user' => 'mysql',
-            'password' => 'mysql',
+            'user' => 'root',
+            'password' => 'cawa123azs',
             'dbname' => 'blog',
             'charset' => 'utf8'
                 ), $config
