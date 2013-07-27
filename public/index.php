@@ -20,5 +20,5 @@ $test->setText('asdasdsad');
 //$entityManager->flush();
 
 $first = $entityManager->getRepository('Entity\Test')->find(1);
-var_dump($first->setCreated(date()));
+var_dump($first->setCreated(time()));
 var_dump($first->getCreated());
