@@ -13,9 +13,9 @@ require '/vendor/autoload.php';
 
 //define environment dev/prod
 if (is_readable('config/appConfig.local.php') && is_readable('config/DoctrineConfig.local.php')) {
-   define('ENVIRONMENT', 'dev');
+    define('ENVIRONMENT', 'dev');
 } else {
-   define('ENVIRONMENT', 'prod');
+    define('ENVIRONMENT', 'prod');
 }
 
 

@@ -1,9 +1,9 @@
 <?php
 
 /*
-* @description doctrine Doctrine ORM config
-* @author CawaKharkov
-*/
+ * @description doctrine Doctrine ORM config
+ * @author CawaKharkov
+ */
 
 use Doctrine\ORM\EntityManager,
     Doctrine\ORM\Configuration,
