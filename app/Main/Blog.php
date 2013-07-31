@@ -10,7 +10,9 @@ namespace Main;
 
 use Doctrine\ORM\EntityManager,
     Main\Router\Router,
-    Main\Config\ConfigReader;
+    Main\Config\ConfigReader,
+    Main\Controller\ErrorController;
+
 
 class Blog
 {
@@ -49,8 +51,10 @@ class Blog
             $router = new Router($routeConfig['router']);
             $request = $router->process();
             
-            $controller = 'Main\\Controller\\' . $request->getController();
-            $controllerInstance = new $controller($request->getAction(), $request->getArgumets());
+            $controller = 'Main\Controller\\' . $request->getController();
+            $controllerInstance = class_exists($controller) ? 
+                    new $controller($request->getAction(), $request->getArgumets()) 
+                    : new ErrorController('404');
             
         } catch (\Exception\WrongArgumentException $e) {
             $e->displayErrors();

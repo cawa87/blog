@@ -20,14 +20,11 @@ abstract class AbstractController
     
     public function __construct($action,$args) 
     {
-         if (method_exists($this, $action)) {
-             $this->arguments = $args;
+        if (method_exists($this, $action)) {
+            $this->arguments = $args;
             return $this->$action();
-        } else {
-            //oh dear - handle this situation in whatever way
-            //is appropriate
-            return null;
-        }
+        } return null;
+        
     }
     
     public function indexAction()
