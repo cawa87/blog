@@ -32,9 +32,14 @@ class Router
         $tmp = parse_url($uri);
         $urlParam = array_filter(explode('/', str_replace('.php', '', $tmp['path'])));
         
-        $controller = $urlParam[1];
-        $action = $urlParam[2];
-        $args = explode('&', $tmp['query']);
+        $controller = isset($urlParam[1]) ? $urlParam[1] : 'index';
+        $action = isset($urlParam[2]) ? $urlParam[2] : 'index';
+        
+        if(isset($tmp['query'])){
+            $args = explode('&', $tmp['query']);
+        } else{
+            $args = [];
+        }
         
         if (array_key_exists($controller, $this->config)) {
             $params['controller'] = ucfirst($controller).'Controller';

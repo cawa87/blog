@@ -10,6 +10,8 @@ use Interfaces\Request;
 
 class AbstractController 
 {
+    protected $arguments = [];
+
 
     protected function dispatch($request)
     {
@@ -19,7 +21,8 @@ class AbstractController
     public function __construct($action,$args) 
     {
          if (method_exists($this, $action)) {
-            return $this->$action($args);
+             $this->arguments = $args;
+            return $this->$action();
         } else {
             //oh dear - handle this situation in whatever way
             //is appropriate
@@ -29,5 +32,6 @@ class AbstractController
     
     public function indexAction()
     {
+        
     }
 }
