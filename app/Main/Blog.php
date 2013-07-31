@@ -31,8 +31,12 @@ class Blog
      */
     public function run()
     {
+        try {
         $this->config = ConfigReader::readConfig('app');
-        
+        }  catch (\Exception\WrongArgumentException $e){
+            echo $e->getMessage();
+            echo get_class($e);
+        }
         $requset = $this->processRqst();
 
     }

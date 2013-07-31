@@ -8,7 +8,7 @@ namespace Main\Controller;
  */
 use Interfaces\Request;
 
-class AbstractController 
+abstract class AbstractController 
 {
     protected $arguments = [];
 

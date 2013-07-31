@@ -8,7 +8,8 @@ use Doctrine\ORM\Mapping as ORM;
 * @ORM\Entity
 * @ORM\Table(name="test")
 */
-class Test {
+class TesEntity
+{
 
     /**
 * @ORM\Id
