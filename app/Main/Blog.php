@@ -43,12 +43,20 @@ class Blog
 
     public function processRqst() 
     {
-        $routeConfig = $this->getConfig();
-        $router = new Router($routeConfig['router']);
-        $request = $router->process();
-        var_dump($request);
-        $controller = 'Main\\Controller\\'.$request->getController();
-        $controllerInstance = new $controller($request->getAction(),$request->getArgumets());
+        try {
+            $routeConfig = $this->getConfig();
+            
+            $router = new Router($routeConfig['router']);
+            $request = $router->process();
+            
+            $controller = 'Main\\Controller\\' . $request->getController();
+            $controllerInstance = new $controller($request->getAction(), $request->getArgumets());
+            
+        } catch (\Exception\WrongArgumentException $e) {
+            $e->displayErrors();
+        } catch (\Exception\WrongControllerException $e) {
+            $e->displayErrors();
+        }
     }
 
     /**

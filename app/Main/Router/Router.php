@@ -28,26 +28,25 @@ class Router
     {
         $params = [];
         
-        $uri = $_SERVER['REQUEST_URI'];
-        $tmp = parse_url($uri);
-        $urlParam = array_filter(explode('/', str_replace('.php', '', $tmp['path'])));
+        $uri = parse_url($_SERVER['REQUEST_URI']);
+        $urlParam = array_filter(explode('/', str_replace('.php', '', $uri['path'])));
         
         $controller = isset($urlParam[1]) ? $urlParam[1] : 'index';
         $action = isset($urlParam[2]) ? $urlParam[2] : 'index';
         
-        if(isset($tmp['query'])){
-            $args = explode('&', $tmp['query']);
-        } else{
-            $args = [];
+        $args = [];
+        if(isset($uri['query'])){
+            $args = explode('&', $uri['query']);
         }
         
         if (array_key_exists($controller, $this->config)) {
             $params['controller'] = ucfirst($controller).'Controller';
             $params['action'] = $action.'Action';
             $params['args'] = $args;
+            return new Request($params);
         }
-
-        return new Request($params);
+        throw new \Exception\WrongControllerException();
+    
         
     }
     

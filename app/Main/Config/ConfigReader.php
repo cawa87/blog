@@ -18,7 +18,6 @@ class ConfigReader
         } else {
             $config = require BASE_DIR . '/config/appConfig.php';
         }
-        throw new \Exception\WrongArgumentException();
         return $config[$selection];
     }
     

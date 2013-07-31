@@ -6,6 +6,6 @@ namespace Exception;
  *
  * @author Cawa
  */
-class WrongArgumentException extends BaseException
+class WrongControllerException extends BaseException
 {
 }
