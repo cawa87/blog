@@ -6,7 +6,9 @@ namespace Main\Controller;
  *
  * @author Cawa
  */
-use Interfaces\Request;
+use Exception\ActionNotFoundException;
+        
+
 
 abstract class AbstractController 
 {
@@ -23,12 +25,17 @@ abstract class AbstractController
         if (method_exists($this, $action)) {
             $this->arguments = $args;
             return $this->$action();
-        } return null;
+        } $this->notFoundActin();
         
     }
     
     public function indexAction()
     {
         
+    }
+    
+    public function notFoundActin()
+    {
+        throw new ActionNotFoundException();
     }
 }

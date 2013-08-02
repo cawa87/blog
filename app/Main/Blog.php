@@ -60,6 +60,8 @@ class Blog
             $e->displayErrors();
         } catch (\Exception\WrongControllerException $e) {
             $e->displayErrors();
+        }catch (\Exception\ActionNotFoundException $e) {
+            $e->displayErrors();
         }
     }
 

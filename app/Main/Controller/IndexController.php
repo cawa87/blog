@@ -16,4 +16,9 @@ class IndexController extends AbstractController
         var_dump($em->getEm()->find('Entity\TestEntity',1));
     }
     
+    public function testAction()
+    {
+        var_dump($this->arguments);
+    }
+    
 }
