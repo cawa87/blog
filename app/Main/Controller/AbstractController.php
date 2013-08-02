@@ -25,7 +25,8 @@ abstract class AbstractController
         if (method_exists($this, $action)) {
             $this->arguments = $args;
             return $this->$action();
-        } $this->notFoundActin();
+        }
+        $this->notFoundActin();
         
     }
     
