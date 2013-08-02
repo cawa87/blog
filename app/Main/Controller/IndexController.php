@@ -13,7 +13,8 @@ class IndexController extends AbstractController
     public function indexAction()
     {
         $em = new EntityManagerObject();
-        var_dump($em->getEm()->find('Entity\TestEntity',1));
+        $this->view =  '1';
+        
     }
     
     public function testAction()

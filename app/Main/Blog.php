@@ -89,7 +89,7 @@ class Blog
         } catch (\Exception\ActionNotFoundException $e) {
             $e->displayErrors();
         }
-        return $controllerInstance;
+        return $controllerInstance->getView();
     }
 
     /**

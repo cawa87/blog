@@ -13,30 +13,31 @@ use Exception\ActionNotFoundException;
 abstract class AbstractController 
 {
     protected $arguments = [];
+    protected $view;
 
-
-    protected function dispatch($request)
+    protected function dispatch($action)
     {
-        var_dump($request);
+        if (method_exists($this, $action)) {
+            return $this->$action();
+        }
+        return $this->notFoundActin();
+      
     }
     
     public function __construct($action,$args) 
     {
-        if (method_exists($this, $action)) {
             $this->arguments = $args;
-            return $this->$action();
-        }
-        $this->notFoundActin();
-        
-    }
-    
-    public function indexAction()
-    {
+            $this->dispatch($action);
         
     }
     
     public function notFoundActin()
     {
         throw new ActionNotFoundException();
+    }
+    
+    public function getView()
+    {
+        return $this->view;
     }
 }
