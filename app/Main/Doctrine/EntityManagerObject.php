@@ -37,14 +37,7 @@ class EntityManagerObject
         $doctrineConfig->setMetadataDriverImpl($driver);
         $doctrineConfig->setMetadataCacheImpl($cache);
 
-         $em = EntityManager::create(array(
-            'driver' => 'pdo_mysql',
-            'user' => 'root',
-            'password' => 'cawa123azs',
-            'dbname' => 'blog',
-            'charset' => 'utf8')
-                , $doctrineConfig
-        );
+        $em = EntityManager::create($config, $doctrineConfig);
          
         $this->setEm($em);
         
