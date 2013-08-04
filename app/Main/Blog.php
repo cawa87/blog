@@ -36,7 +36,7 @@ class Blog
     {
         try {
         $this->config = ConfigReader::readConfig('app');
-        }  catch (\Exception\WrongArgumentException $e){
+        }  catch (\Exception\ConfigSectionException $e){
             $e->displayErrors();
         }
         $request = $this->processRqst();
@@ -47,7 +47,7 @@ class Blog
         
         $tmp = ob_get_clean();
         
-        var_dump($tmp);
+        echo $tmp;
 
     }
 

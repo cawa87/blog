@@ -1,0 +1,8 @@
+language: php
+python:
+  - 5.4
+  - 5.5.1
+
+install:
+  #- mkdir -p buildout-cache/eggs
+  #- mkdir -p buildout-cache/downloads

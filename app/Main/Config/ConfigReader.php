@@ -9,14 +9,14 @@ namespace Main\Config;
 class ConfigReader
 {
 
-    public static function readConfig($selection = 'app') 
+    public static function readConfig($seletion = 'app') 
     {
        
         $config = (ENVIRONMENT == 'dev') ?
                 require BASE_DIR . '/config/appConfig.local.php' :
                 require BASE_DIR . '/config/appConfig.php';
 
-        return $config[$selection];
+        return $config[$seletion];
     }
     
 }

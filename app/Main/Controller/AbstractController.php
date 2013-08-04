@@ -31,7 +31,7 @@ abstract class AbstractController
         
     }
     
-    public function notFoundActin()
+    public function notFoundAction()
     {
         throw new ActionNotFoundException();
     }
