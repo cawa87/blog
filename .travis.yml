@@ -1,8 +1,23 @@
-language: php
-python:
-  - 5.4
-  - 5.5.1
-
-install:
-  #- mkdir -p buildout-cache/eggs
-  #- mkdir -p buildout-cache/downloads
+    language: php
+     
+    php:
+    - 5.4
+    - 5.5
+     
+    matrix:
+    allow_failures:
+    - php: 5.5
+     
+    env:
+    global:
+    matrix:
+    - REQUIRE=no-dev
+    - REQUIRE=dev
+     
+    before_script:
+    - mkdir data/cache
+    - chmod 777 data/cache
+    - composer self-update
+    - composer --${REQUIRE} --prefer-source install
+     
+    script: phpunit -c app/
