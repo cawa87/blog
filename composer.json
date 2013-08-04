@@ -17,7 +17,8 @@
     "require": {
         "sybio/imageworkshop": "master@dev",
         "doctrine/orm": "*",
-        "php": ">=5.4.0"
+        "php": ">=5.4.0",
+        "phpunit/phpunit": "3.7.*"
 
     },
     "autoload": {
