@@ -11,13 +11,11 @@ class ConfigReader
 
     public static function readConfig($selection = 'app') 
     {
-        
-        if (ENVIRONMENT == 'dev') {
-            $config = require BASE_DIR . '/config/appConfig.local.php';
-            
-        } else {
-            $config = require BASE_DIR . '/config/appConfig.php';
-        }
+       
+        $config = (ENVIRONMENT == 'dev') ?
+                require BASE_DIR . '/config/appConfig.local.php' :
+                require BASE_DIR . '/config/appConfig.php';
+
         return $config[$selection];
     }
     

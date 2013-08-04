@@ -10,6 +10,7 @@ namespace Main;
 
 use Doctrine\ORM\EntityManager,
     Main\Router\Router,
+    Interfaces\RequestInterface,
     Main\Config\ConfigReader,
     Main\Controller\ErrorController;
 
@@ -36,31 +37,59 @@ class Blog
         try {
         $this->config = ConfigReader::readConfig('app');
         }  catch (\Exception\WrongArgumentException $e){
-            echo $e->getMessage();
-            echo get_class($e);
+            $e->displayErrors();
         }
-        $requset = $this->processRqst();
+        $request = $this->processRqst();
+        
+        $content = $this->startController($request);
+        ob_start();
+        include BASE_DIR.'/app/views/layout/default.phtml';
+        
+        $tmp = ob_get_clean();
+        
+        var_dump($tmp);
 
     }
 
+    /**
+     * 
+     * @return type Request
+     * @throws WrongArgumentException
+     */
     public function processRqst() 
     {
         try {
             $routeConfig = $this->getConfig();
-            
+
             $router = new Router($routeConfig['router']);
             $request = $router->process();
-            
-            $controller = 'Main\Controller\\' . $request->getController();
-            $controllerInstance = class_exists($controller) ? 
-                    new $controller($request->getAction(), $request->getArgumets()) 
-                    : new ErrorController('404');
-            
         } catch (\Exception\WrongArgumentException $e) {
             $e->displayErrors();
+        }
+        return $request;
+    }
+
+    
+    /**
+     * 
+     * @param \Interfaces\RequestInterface $request
+     * @return type Controller
+     * @throws WrongControllerException
+     * @throws ActionNotFoundException
+     */
+    public function startController(RequestInterface $request)
+    {
+        try {
+            $controller = 'Main\Controller\\' . $request->getController();
+            $controllerInstance = class_exists($controller) ?
+                    new $controller($request->getAction(), $request->getArgumets()) :
+                    new ErrorController('404');
         } catch (\Exception\WrongControllerException $e) {
             $e->displayErrors();
+        } catch (\Exception\ActionNotFoundException $e) {
+            $e->displayErrors();
         }
+        return $controllerInstance->getView();
     }
 
     /**
