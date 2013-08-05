@@ -63,6 +63,7 @@ class Blog
 
             $router = new Router($routeConfig['router']);
             $request = $router->process();
+            
         } catch (\Exception\WrongArgumentException $e) {
             $e->displayErrors();
         }
