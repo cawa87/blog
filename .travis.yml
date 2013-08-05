@@ -9,4 +9,6 @@
     - composer self-update
     - composer install
      
-    script: phpunit -c tests
+    script: 
+    - composer self-update
+    - phpunit -c tests
