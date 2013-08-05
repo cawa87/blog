@@ -9,7 +9,7 @@ chdir(dirname(__DIR__));
 //create constant for project dir
 define('BASE_DIR', dirname(__DIR__));
 
-require '/vendor/autoload.php';
+require BASE_DIR.'/vendor/autoload.php';
 
 //define environment dev/prod
 if (is_readable('config/appConfig.local.php')){
