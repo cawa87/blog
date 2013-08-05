@@ -35,7 +35,7 @@ class ConfigReaderTest extends \PHPUnit_Framework_TestCase
     public function testReadConfig()
     {
         $configLocal = $this->object->readConfig();
-        $this->assertArrayHasKey('app', $configLocal);
+        $this->assertInternalType('array', $configLocal);
         $configProd = require BASE_DIR . '/config/appConfig.php';
         $this->assertArrayHasKey('app', $configProd);
     }
