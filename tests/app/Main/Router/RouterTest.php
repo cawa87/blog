@@ -21,6 +21,7 @@ class RouterTest extends \PHPUnit_Framework_TestCase {
      */
     protected function setUp() 
     {
+        
         $routeConfig = ConfigReader::readConfig('app');
          
         $this->object = new Router($routeConfig['router']);
