@@ -7,6 +7,6 @@
     - mkdir data/cache
     - chmod 777 data/cache
     - composer self-update
-    - composer --${REQUIRE} --prefer-source install
+    - composer install
      
-    script: phpunit -c test/
+    script: phpunit -c tests
