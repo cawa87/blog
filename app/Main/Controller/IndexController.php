@@ -15,7 +15,7 @@ class IndexController extends AbstractController
         $em = new EntityManagerObject();
         $test = $em->getEm()->find('\Entity\TestEntity',1);
         $array = $em->serialize($test);
-        echo json_encode($array);
+        echo json_encode(array_pop($array));
         
     }
     

@@ -1,17 +1,23 @@
 <!doctype html>
-<html ng-app="blog">
+<html ng-app>
     <head>
-        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.js"></script>
-        <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.5.0.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.js"></script>
+        <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.5.0.js"></script>
         <script src="/js/main.js"></script>
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
     </head>
     <body>
         <div class="container">
             <div clas="row">
-                <div ng-controller="AlertDemoCtrl">
-                    <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
-                    <button class='btn' ng-click="addAlert()">Add Alert</button>
+                <div class="span4 well">
+                    <div class="row">
+                        <div class="span1"><a href="http://critterapp.pagodabox.com/others/admin" class="thumbnail"><img src="http://critterapp.pagodabox.com/img/user.jpg" alt=""></a></div>
+                        <div class="span3">
+                            <p>admin</p>
+                            <p><strong>First Last Name</strong></p>
+                            <span class=" badge badge-warning">8 messages</span> <span class=" badge badge-info">15 followers</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
