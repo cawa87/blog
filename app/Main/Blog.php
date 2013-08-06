@@ -42,12 +42,12 @@ class Blog
         $request = $this->processRqst();
         
         $content = $this->startController($request);
-        ob_start();
-        include BASE_DIR.'/app/views/layout/default.phtml';
+        //ob_start();
+        //include BASE_DIR.'/app/views/layout/default.phtml';
         
-        $tmp = ob_get_clean();
-        
-        echo $tmp;
+        //$tmp = ob_get_clean();
+        //var_dump($content);
+        //echo $tmp;
 
     }
 
@@ -90,7 +90,7 @@ class Blog
         } catch (\Exception\ActionNotFoundException $e) {
             $e->displayErrors();
         }
-        return $controllerInstance->getView();
+        //return $controllerInstance->getView();
     }
 
     /**
