@@ -20,7 +20,7 @@ return [
     'doctrine' => [
         'driver' => 'pdo_mysql',
         'user' => 'root',
-        'password' => 'cawa123azs',
+        'password' => '',
         'dbname' => 'blog',
         'charset' => 'utf8',
         'proxyDir' => '/data/Proxy',
